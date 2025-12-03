@@ -35,3 +35,6 @@ In your solution you must provide the following in your Github link account:
  -  Problem statement (description of the problem. Just copy what is stated here.
  - UML Class Diagram
  - Uploaded java codes for the solution.
+
+ ## UML Class Diagram
+<img src="https://github.com/albeetter/observerPattern/blob/master/ObserverDiagram.png" alt="classdiagram">
