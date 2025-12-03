@@ -1,5 +1,5 @@
 public class Subscriber implements SubscriberObserver {
-    private final String subscriberName;
+    private String subscriberName;
     private String preference;
 
     public Subscriber(String subscriberName) {
@@ -12,14 +12,13 @@ public class Subscriber implements SubscriberObserver {
         this.preference = preference;
     }
 
-    @Override
-    public void update(News news) {
-        if (preference.equals("All") || preference.equalsIgnoreCase(news.getCategory())) {
+    public void update(String headline, String category, String content, String timestamp) {
+        if (preference.equals("All") || preference.equalsIgnoreCase(category)) {
             System.out.println("NOTIFICATION → " + subscriberName);
-            System.out.println("   Headline: " + news.getHeadline());
-            System.out.println("   Category: " + news.getCategory());
-            System.out.println("   Time: " + news.getTimestamp());
-            System.out.println("   Content: " + news.getContent() + "\n");
+            System.out.println("   Headline: " + headline);
+            System.out.println("   Category: " + category);
+            System.out.println("   Time: " + timestamp);
+            System.out.println("   Content: " + content + "\n");
         } else {
             System.out.println("SKIPPED → " + subscriberName +
                     " (only interested in " + preference + " news)\n");
@@ -33,11 +32,6 @@ public class Subscriber implements SubscriberObserver {
         this.preference = preference;
     }
 
-    public String getPreference() {
-        return preference;
-    }
-
-    @Override
     public String toString() {
         return "Subscriber{" + subscriberName + ", prefers=" + preference + "}";
     }

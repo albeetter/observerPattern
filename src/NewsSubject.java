@@ -1,5 +1,5 @@
 public interface NewsSubject {
-    void attach(SubscriberObserver observer);
-    void detach(SubscriberObserver observer);
+    void attach(SubscriberObserver s);
+    void detach(SubscriberObserver s);
     void notifySubscribers();
 }

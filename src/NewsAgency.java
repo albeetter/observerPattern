@@ -2,35 +2,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsAgency implements NewsSubject {
-    private final List<SubscriberObserver> subscriberList = new ArrayList<>();
+    private List<SubscriberObserver> subscriberList = new ArrayList<>();
     private String agencyName;
-    private News currentNews;
+    private String headline;
+    private String category;
+    private String content;
+    private String timestamp;
 
     public NewsAgency(String agencyName) {
         this.agencyName = agencyName;
     }
 
-    @Override
-    public void attach(SubscriberObserver observer) {
-        if (!subscriberList.contains(observer)) {
-            subscriberList.add(observer);
-            System.out.println("[+] " + observer + " subscribed to " + agencyName);
+    public void attach(SubscriberObserver s) {
+        if (!subscriberList.contains(s)) {
+            subscriberList.add(s);
+            System.out.println("[+] " + s + " subscribed to " + agencyName);
         }
     }
 
-    @Override
-    public void detach(SubscriberObserver observer) {
-        if (subscriberList.remove(observer)) {
-            System.out.println("[-] " + observer + " unsubscribed from " + agencyName);
+    public void detach(SubscriberObserver s) {
+        if (subscriberList.remove(s)) {
+            System.out.println("[-] " + s + " unsubscribed from " + agencyName);
         }
     }
 
-    @Override
     public void notifySubscribers() {
         System.out.println("\n>>> Notifying " + subscriberList.size() +
                 " subscriber(s) from " + agencyName + "...\n");
-        for (SubscriberObserver observer : new ArrayList<>(subscriberList)) {
-            observer.update(currentNews);
+        for (SubscriberObserver s : new ArrayList<>(subscriberList)) {
+            s.update(headline, category, content, timestamp);
         }
     }
 
@@ -42,7 +42,11 @@ public class NewsAgency implements NewsSubject {
         System.out.println("Time: " + timestamp);
         System.out.println("=".repeat(70));
 
-        this.currentNews = new News(headline, category, content, timestamp);
+        this.headline = headline;
+        this.category = category;
+        this.content = content;
+        this.timestamp = timestamp;
+
         notifySubscribers();
     }
 

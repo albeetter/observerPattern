@@ -1,3 +1,3 @@
 public interface SubscriberObserver {
-    void update(News news);
+    void update(String headline, String category, String content, String timestamp);
 }

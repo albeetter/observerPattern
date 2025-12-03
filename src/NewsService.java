@@ -2,10 +2,10 @@ public class NewsService {
     public static void main(String[] args) {
         NewsAgency cnnNews = new NewsAgency("CNN Breaking News");
 
-        Subscriber subscriber1 = new Subscriber("John Doe");
-        Subscriber subscriber2 = new Subscriber("Jane Smith", "Sports");
-        Subscriber subscriber3 = new Subscriber("Tech Enthusiast", "Technology");
-        Subscriber subscriber4 = new Subscriber("Political Analyst", "Politics");
+        Subscriber subscriber1 = new Subscriber("Julius");
+        Subscriber subscriber2 = new Subscriber("Albert", "Sports");
+        Subscriber subscriber3 = new Subscriber("Albi", "Technology");
+        Subscriber subscriber4 = new Subscriber("Jao", "Politics");
 
         System.out.println("\n" + "=".repeat(70));
         System.out.println("SUBSCRIPTION PHASE");
